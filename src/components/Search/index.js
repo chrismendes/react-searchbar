@@ -45,7 +45,7 @@ console.log(books);
     }
   }, [searchQuery]);
   
-  
+
   return (
     <Styled.SearchContainer>
 
@@ -68,7 +68,7 @@ console.log(books);
           <Styled.Result key={index} href={'/'} target="_blank">
 
             <Styled.ResultImageContainer>
-              <Styled.ResultImage src={result.image} alt={result.title} />
+              <Styled.ResultImage src={result.image || '/icon-book.gif'} alt={result.title} />
             </Styled.ResultImageContainer>
             <span>{result.title}</span>
 
