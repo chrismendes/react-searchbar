@@ -17,15 +17,19 @@ const Search = () => {
       />
 
       <Styled.ResultsBox style={(searchActive) ? { display: 'none' } : {}}>
+
         {results.map((result, index) => (
-          <Styled.Result key={index} href={'/'}>
-            <span className="searchbar__resulttype">{result.resultTypeText}</span>
-            <span className="searchbar__resultname">{result.resultTitle}</span>
+          <Styled.Result key={index} href={'/'} target="_blank">
+            <Styled.ResultImageContainer>
+              <Styled.ResultImage src={result.image} alt={result.title} />
+            </Styled.ResultImageContainer>
+            <span>{result.title}</span>
           </Styled.Result>
         ))}
         <Styled.NoResultsMsg style={(searchActive && results.length === 0) ? { display: 'none' } : {}}>
           No results found
         </Styled.NoResultsMsg>
+
       </Styled.ResultsBox>
 
     </Styled.SearchContainer>
