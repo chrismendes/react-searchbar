@@ -8,6 +8,7 @@ const Search = () => {
   const [fieldInputVal, setFieldInputVal] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
   const [results, setResults] = useState([]);
+  const maxResults = 10;
 
   const [searchActive, setSearchActive] = useState(false);
 
@@ -36,11 +37,9 @@ const Search = () => {
     if (searchQuery) {
       (async () => {
         setResultsLoading(true);
-        const books = await fetchBooks(searchQuery);
+        const books = await fetchBooks(searchQuery, maxResults);
         setResults(books);
         setResultsLoading(false);
-console.clear();
-console.log(books);
       })();
     }
   }, [searchQuery]);
