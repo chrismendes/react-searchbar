@@ -43,19 +43,37 @@ const Search = () => {
       })();
     }
   }, [searchQuery]);
+
+
+  // Close results box on click out
+  useEffect(() => {
+    showResultsBox(searchActive);
+  }, [searchActive]);
   
+  
+  // Reset search on button click
+  const clearSearch = () => {
+    setFieldInputVal('');
+    setSearchQuery('');
+    showResultsBox(false);
+    setResults([]);
+  };
 
   return (
     <Styled.SearchContainer>
 
-      <Styled.InputField
-        type="text"
-        placeholder="Quick search"
-        onChange={(e) => setFieldInputVal(e.target.value)}
-        onFocus={() => setSearchActive(true)}
-        onBlur={() => setSearchActive(false)}
-        ref={inputElement}
-      />
+      <Styled.InputFieldContainer showSearchIcon={fieldInputVal.length === 0}>
+        <Styled.CancelButton onClick={clearSearch} visible={fieldInputVal.length > 0} />
+        <Styled.InputField
+          type="text"
+          placeholder="Quick search"
+          onChange={(e) => setFieldInputVal(e.target.value)}
+          onFocus={() => setSearchActive(true)}
+          onBlur={() => setSearchActive(false)}
+          value={fieldInputVal}
+          ref={inputElement}
+        />
+      </Styled.InputFieldContainer>
 
       <Styled.ResultsBox style={(resultsBoxOpen) ? {} : { display: 'none' }}>
 

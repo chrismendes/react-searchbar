@@ -3,9 +3,47 @@ import styled from 'styled-components';
 export const SearchContainer = styled.div`
 `;
 
-export const InputField = styled.input`
-  width: 300px;
+export const InputFieldContainer = styled.div`
+  position: relative;
+
+  &:after {
+    content: '';
+    display: ${props => props.showSearchIcon ? 'block' : 'none'};
+
+    width: 20px;
+    height: 22px;
+    background-image: url('/icon-search.svg');
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: 20px;
+    
+    position: absolute;
+    top: 9px;
+    right: 8px;
+  }
 `;
+  export const InputField = styled.input`
+    padding-right: 34px;
+  `;
+  export const CancelButton = styled.button`
+    width: 20px;
+    height: 100%;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    display: ${props => props.visible ? 'block' : 'none'};
+
+    background-color: transparent;
+    background-image: url('/icon-cross.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20px;
+    border: 0;
+
+    cursor: pointer;
+  `;
 
 export const ResultsBox = styled.div`
   width: 400px;
