@@ -20,6 +20,7 @@ const Search = () => {
 
   // Trigger search when user stops typing
   useEffect(() => {
+    setResults([]);
     if (fieldInputVal.length >= minimumChar) {
       showResultsBox(true);
       const timer = setTimeout(() => {
