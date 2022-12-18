@@ -23,11 +23,22 @@ export const InputFieldContainer = styled.div`
   }
 `;
   export const InputField = styled.input`
+    width: 260px;
     padding-right: 34px;
+
     border: 2px solid transparent;
+    outline: none;
+    background: #333;
+    color: #fff;
+
+    transition: width 0.3s, background 0.3s, color: 0.3s;
+    transition-timing-function: ease-out;
 
     &:focus {
-      border: 2px solid orange;
+      border: 2px solid transparent;
+      background: #d0d0d0;
+      color: #222;
+      width: 280px;
     }
   `;
   export const CancelButton = styled.button`
@@ -57,12 +68,12 @@ export const ResultsBox = styled.div`
 
   position: absolute;
   right: 40px;
+  margin-top: 6px;
 
   max-height: 340px;
   overflow-y: scroll;
 
-  background: #efefef;
-  border: 1px solid #d0d0d0;
+  background: #444;
   border-top: 0;
 `;
 
@@ -70,7 +81,7 @@ export const ResultsBox = styled.div`
     padding: 10px 20px;
     display: block;
 
-    color: #333;
+    color: #999;
     text-align: center;
     font-size: 0.9em;
   `;
@@ -80,6 +91,8 @@ export const ResultsBox = styled.div`
     flex-direction: row;
     align-items: center;
 
+    color: #fff;
+
     margin-top: 6px;
 
     &:first-child {
@@ -87,7 +100,7 @@ export const ResultsBox = styled.div`
     }
 
     &:hover {
-      background: #dfdfdf;
+      background: #666;
     }
   `;
     export const ResultImageContainer = styled.div`
@@ -103,7 +116,7 @@ export const ResultsBox = styled.div`
       max-height: 100%;
     `;
     export const ResultTitle = styled.span`
-      color: #333;
+      color: #fff;
     `;
 
 export const NoResultsMsg = styled.span`
