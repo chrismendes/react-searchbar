@@ -47,6 +47,7 @@ export const InputFieldContainer = styled.div`
 
 export const ResultsBox = styled.div`
   width: 400px;
+  min-height: 40px;
   padding: 6px;
 
   position: absolute;
@@ -59,6 +60,15 @@ export const ResultsBox = styled.div`
   border: 1px solid #d0d0d0;
   border-top: 0;
 `;
+
+  export const HelperText = styled.span`
+    padding: 10px 20px;
+    display: block;
+
+    color: #333;
+    text-align: center;
+    font-size: 0.9em;
+  `;
 
   export const Result = styled.a`
     display: flex;

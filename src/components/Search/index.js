@@ -77,6 +77,12 @@ const Search = () => {
 
       <Styled.ResultsBox style={(resultsBoxOpen) ? {} : { display: 'none' }}>
 
+        {!resultsLoading && results.length === 0 &&
+          <Styled.HelperText>
+            Search for book titles or authors
+          </Styled.HelperText>
+        }
+
         {resultsLoading &&
           <Spinner />
         }
