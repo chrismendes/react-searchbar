@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { LayoutContainer } from '.';
 
 const StyledMain = styled.main`
-  background: #ffffff;
+  background: #444;
 `;
 
 const LayoutBody = (props) => (

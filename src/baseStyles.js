@@ -24,7 +24,8 @@ const BaseStyles = createGlobalStyle`
    * Remove default margin.
    */
   body {
-    margin: 0; }
+    margin: 0;
+  }
 
   /* HTML5 display definitions
     ========================================================================== */
@@ -361,7 +362,8 @@ const BaseStyles = createGlobalStyle`
     color: #111;
     font-size: 1.1em;
     line-height: 1.5;
-    background: #fff; }
+    background: #222;
+  }
 
   main {
     display: block; }

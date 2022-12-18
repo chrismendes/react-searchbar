@@ -8,7 +8,7 @@ const StyledHeader = styled.header`
   padding: 10px 40px;
 
   color: #ffffff;
-  background: #1d71b8;
+  background: #111;
 `;
 
 const LayoutSiteHeader = (props) => (

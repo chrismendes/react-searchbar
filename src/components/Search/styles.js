@@ -24,6 +24,11 @@ export const InputFieldContainer = styled.div`
 `;
   export const InputField = styled.input`
     padding-right: 34px;
+    border: 2px solid transparent;
+
+    &:focus {
+      border: 2px solid orange;
+    }
   `;
   export const CancelButton = styled.button`
     width: 20px;
@@ -53,7 +58,7 @@ export const ResultsBox = styled.div`
   position: absolute;
   right: 40px;
 
-  max-height: 196px;
+  max-height: 340px;
   overflow-y: scroll;
 
   background: #efefef;
