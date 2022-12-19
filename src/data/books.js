@@ -20,6 +20,9 @@ export const fetchBooks = async (query, maxResults) => {
   const books = data.docs;
 
   for (let i in books) {
+    if (books[i]['author_name']) {
+      books[i]['author_name'] = books[i]['author_name'][0] || null;
+    }
     const coverID = books[i]['cover_i'];
     if (coverID) {
       books[i]['image'] = bookCoverEndpoint + coverID + bookCoverEndpointSuffix;
