@@ -83,7 +83,7 @@ const Search = () => {
         }
 
         {results.map((result, index) => (
-          <Styled.Result key={index} href={'/'} target="_blank">
+          <Styled.Result key={index} href={result.link} target="_blank">
 
             <Styled.ResultImageContainer>
               <Styled.ResultImage src={result.image || '/icon-book.gif'} alt={result.title} />
