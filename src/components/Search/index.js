@@ -45,12 +45,6 @@ const Search = () => {
     }
   }, [searchQuery]);
 
-
-  // Close results box on click out
-  useEffect(() => {
-    // showResultsBox(searchActive);
-  }, [searchActive]);
-  
   
   // Reset search on button click
   const clearSearch = () => {
@@ -70,13 +64,13 @@ const Search = () => {
           placeholder="Search for book titles or authors"
           onChange={(e) => setFieldInputVal(e.target.value)}
           onFocus={() => setSearchActive(true)}
-          onBlur={() => setSearchActive(false)}
+          onBlur={() => setTimeout(() => setSearchActive(false), 50)}
           value={fieldInputVal}
           ref={inputElement}
         />
       </Styled.InputFieldContainer>
 
-      <Styled.ResultsBox style={(searchActive && results.length || resultsLoading) ? { opacity: '100%' } : {  }}>
+      <Styled.ResultsBox style={(searchActive && results.length || resultsLoading) ? { display: 'block' } : {  }}>
 
         {resultsLoading &&
           <Spinner />

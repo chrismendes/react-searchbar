@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const SearchContainer = styled.div`
+  display: flex;
 `;
 
 export const InputFieldContainer = styled.div`
@@ -63,17 +64,14 @@ export const InputFieldContainer = styled.div`
   `;
 
 export const ResultsBox = styled.div`
+  display: none;
   width: 400px;
   min-height: 40px;
   padding: 6px;
 
-  transition: opacity 0.1s;
-  transition-timing-function: ease-out;
-  transition-delay: 0.3s;
-  opacity: 0;
-
   position: absolute;
   right: 40px;
+  top: 54px;
 
   max-height: 340px;
   overflow-y: scroll;
@@ -105,7 +103,7 @@ export const ResultsBox = styled.div`
     }
 
     &:hover {
-      background: #666;
+      background: #555;
     }
   `;
     export const ResultImageContainer = styled.div`
