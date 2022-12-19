@@ -66,8 +66,8 @@ export const InputFieldContainer = styled.div`
 export const ResultsBox = styled.div`
   display: none;
   width: 400px;
-  min-height: 40px;
-  padding: 6px;
+  _min-height: 40px;
+  _padding: 6px;
 
   position: absolute;
   right: 40px;
@@ -79,9 +79,11 @@ export const ResultsBox = styled.div`
   background: #444;
 `;
 
-  export const HelperText = styled.span`
-    padding: 10px 20px;
-    display: block;
+  export const FeedbackMessage = styled.span`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 62px;
 
     color: #999;
     text-align: center;
@@ -96,7 +98,7 @@ export const ResultsBox = styled.div`
     color: #fff;
 
     min-height: 96px;
-    margin-top: 6px;
+    padding: 6px;
 
     &:first-child {
       margin-top: 0;
@@ -131,7 +133,3 @@ export const ResultsBox = styled.div`
       color: #fff;
       font-size: 0.7em;
     `;
-
-export const NoResultsMsg = styled.span`
-  display: none;
-`;

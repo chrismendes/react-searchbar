@@ -20,13 +20,14 @@ const Search = () => {
   // Trigger search when user stops typing
   useEffect(() => {
     setResults([]);
+    setSearchQuery('');
     if (fieldInputVal.length >= minimumChar) {
       const timer = setTimeout(() => {
-        setSearchQuery(fieldInputVal)
+        setSearchQuery(fieldInputVal);
       }, 1000);
       return () => clearTimeout(timer);
     }
-  }, [fieldInputVal])
+  }, [fieldInputVal]);
   
 
   // Execute search
@@ -66,7 +67,7 @@ const Search = () => {
         />
       </Styled.InputFieldContainer>
 
-      <Styled.ResultsBox style={(resultsLoading || (searchActive && results.length > 0)) ? { display: 'block' } : {  }}>
+      <Styled.ResultsBox style={(resultsLoading || searchActive) ? { display: 'block' } : {  }}>
 
         {resultsLoading &&
           <Spinner />
@@ -89,10 +90,10 @@ const Search = () => {
           </Styled.Result>
         ))}
         
-        {!resultsLoading && results.length === 0 &&
-          <Styled.NoResultsMsg>
-            No results found
-          </Styled.NoResultsMsg>
+        {!resultsLoading && searchQuery && results.length === 0 &&
+          <Styled.FeedbackMessage>
+            Sorry, no results were found.
+          </Styled.FeedbackMessage>
         }
 
       </Styled.ResultsBox>

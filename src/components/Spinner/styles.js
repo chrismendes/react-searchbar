@@ -3,9 +3,9 @@ import styled from 'styled-components';
 // Courtesy of: https://projects.lukehaas.me/css-loaders/
 
 export const Spinner = styled.div`
-  color: #666;
+  color: #777;
   font-size: 10px;
-  margin: 0 auto 40px auto;
+  margin: 0 auto 50px auto;
   position: relative;
   text-indent: -9999em;
   transform: translateZ(0);
