@@ -42,11 +42,12 @@ const Search = () => {
   }, [searchQuery]);
 
   
-  // Reset search on button click
+  // Reset search on button click, set focus to input
   const clearSearch = () => {
     setFieldInputVal('');
     setSearchQuery('');
     setResults([]);
+    inputElement.current.focus();
   };
 
   return (
