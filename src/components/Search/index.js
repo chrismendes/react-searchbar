@@ -12,7 +12,6 @@ const Search = () => {
 
   const [searchActive, setSearchActive] = useState(false);
 
-  const [resultsBoxOpen, showResultsBox] = useState(false);
   const [resultsLoading, setResultsLoading] = useState(false);
   const inputElement = useRef(null);
   const minimumChar = 4;
@@ -22,13 +21,10 @@ const Search = () => {
   useEffect(() => {
     setResults([]);
     if (fieldInputVal.length >= minimumChar) {
-      showResultsBox(true);
       const timer = setTimeout(() => {
         setSearchQuery(fieldInputVal)
       }, 1000);
       return () => clearTimeout(timer);
-    } else {
-      showResultsBox(false);
     }
   }, [fieldInputVal])
   
@@ -50,7 +46,6 @@ const Search = () => {
   const clearSearch = () => {
     setFieldInputVal('');
     setSearchQuery('');
-    showResultsBox(false);
     setResults([]);
   };
 
@@ -70,7 +65,7 @@ const Search = () => {
         />
       </Styled.InputFieldContainer>
 
-      <Styled.ResultsBox style={(searchActive && results.length || resultsLoading) ? { display: 'block' } : {  }}>
+      <Styled.ResultsBox style={(resultsLoading || (searchActive && results.length > 0)) ? { display: 'block' } : {  }}>
 
         {resultsLoading &&
           <Spinner />
