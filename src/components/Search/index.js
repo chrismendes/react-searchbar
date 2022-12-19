@@ -48,7 +48,7 @@ const Search = () => {
 
   // Close results box on click out
   useEffect(() => {
-    showResultsBox(searchActive);
+    // showResultsBox(searchActive);
   }, [searchActive]);
   
   
@@ -67,7 +67,7 @@ const Search = () => {
         <Styled.CancelButton onClick={clearSearch} visible={fieldInputVal.length > 0} />
         <Styled.InputField
           type="text"
-          placeholder="Quick search"
+          placeholder="Search for book titles or authors"
           onChange={(e) => setFieldInputVal(e.target.value)}
           onFocus={() => setSearchActive(true)}
           onBlur={() => setSearchActive(false)}
@@ -76,13 +76,7 @@ const Search = () => {
         />
       </Styled.InputFieldContainer>
 
-      <Styled.ResultsBox style={(resultsBoxOpen) ? {} : { display: 'none' }}>
-
-        {!resultsLoading && results.length === 0 &&
-          <Styled.HelperText>
-            Search for book titles or authors
-          </Styled.HelperText>
-        }
+      <Styled.ResultsBox style={(searchActive && results.length || resultsLoading) ? { opacity: '100%' } : {  }}>
 
         {resultsLoading &&
           <Spinner />
@@ -94,7 +88,13 @@ const Search = () => {
             <Styled.ResultImageContainer>
               <Styled.ResultImage src={result.image || '/icon-book.gif'} alt={result.title} />
             </Styled.ResultImageContainer>
-            <span>{result.title}</span>
+
+            <Styled.ResultDetailsContainer>
+              <Styled.ResultTitle>{result.title}</Styled.ResultTitle>
+              {result.author_name &&
+                <Styled.ResultAuthor>{result.author_name}</Styled.ResultAuthor>
+              }
+            </Styled.ResultDetailsContainer>
 
           </Styled.Result>
         ))}

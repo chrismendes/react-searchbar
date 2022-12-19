@@ -23,10 +23,11 @@ export const InputFieldContainer = styled.div`
   }
 `;
   export const InputField = styled.input`
-    width: 260px;
+    width: 380px;
     padding-right: 34px;
 
     border: 2px solid transparent;
+    border-radius: 4px;
     outline: none;
     background: #333;
     color: #fff;
@@ -38,7 +39,7 @@ export const InputFieldContainer = styled.div`
       border: 2px solid transparent;
       background: #d0d0d0;
       color: #222;
-      width: 280px;
+      width: 400px;
     }
   `;
   export const CancelButton = styled.button`
@@ -66,15 +67,18 @@ export const ResultsBox = styled.div`
   min-height: 40px;
   padding: 6px;
 
+  transition: opacity 0.1s;
+  transition-timing-function: ease-out;
+  transition-delay: 0.3s;
+  opacity: 0;
+
   position: absolute;
   right: 40px;
-  margin-top: 6px;
 
   max-height: 340px;
   overflow-y: scroll;
 
   background: #444;
-  border-top: 0;
 `;
 
   export const HelperText = styled.span`
@@ -93,6 +97,7 @@ export const ResultsBox = styled.div`
 
     color: #fff;
 
+    min-height: 96px;
     margin-top: 6px;
 
     &:first-child {
@@ -107,16 +112,26 @@ export const ResultsBox = styled.div`
       display: flex;
       align-items: center;
       max-width: 60px;
-      margin-right: 12px;
+      margin-right: 20px;
+      background: #333;
     `;
     export const ResultImage = styled.img`
       width: auto;
       height: auto;
       max-width: 100%;
       max-height: 100%;
+      min-width: 62px;
+    `;
+    export const ResultDetailsContainer = styled.div`
+      display: flex;
+      flex-direction: column;
     `;
     export const ResultTitle = styled.span`
+      color: #FFC300;
+    `;
+    export const ResultAuthor = styled.span`
       color: #fff;
+      font-size: 0.7em;
     `;
 
 export const NoResultsMsg = styled.span`
