@@ -1,8 +1,8 @@
-# Sample Application - Search Bar
+# Demo App - React Search Bar
 
   > Search in real-time for a book from a public API.
 
-  > Run the app at: https://app-search.chrismendes.uk
+  > Run the app at: https://react-searchbar-chrismendes.vercel.app
 
 ## Overview
 
@@ -10,12 +10,10 @@
 
 * React, JavaScript ES6
 * HTML5, CSS3, Styled Components
-* Redux
 
 **Run the app**
 
 * Run the app in development mode with the command `npm start` (install dependencies with `npm install`)
-* App will reload in browser on file edit
 
 ## License
 
