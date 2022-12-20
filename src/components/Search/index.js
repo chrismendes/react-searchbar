@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import * as Styled from './styles';
 import Spinner from '../Spinner';
-import { fetchBooks } from '../../data/books';
+import { fetchBooks } from '../../services/books';
 
 const Search = () => {
 
