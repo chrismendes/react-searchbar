@@ -1,4 +1,4 @@
-const apiEndpoint = 'http://openlibrary.org/search.json?q=';
+const apiEndpoint = 'https://openlibrary.org/search.json?q=';
 const configParams = '&fields=title,author_name,cover_i&page=';
 const bookCoverEndpoint = 'https://covers.openlibrary.org/b/id/';
 const bookCoverEndpointSuffix = '-M.jpg';
