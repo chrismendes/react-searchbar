@@ -5,64 +5,59 @@ import { fetchBooks } from '../../services/books';
 
 const Search = () => {
 
-  const [fieldInputVal, setFieldInputVal] = useState('');
-  const [searchQuery, setSearchQuery] = useState('');
-  const [results, setResults] = useState([]);
-  const maxResults = 10;
-
+  const [searchInput, setSearchInput] = useState('');
+  const [debouncedSearchInput, setDebouncedSearchInput] = useState('');
   const [searchActive, setSearchActive] = useState(false);
-
   const [resultsLoading, setResultsLoading] = useState(false);
+  const [results, setResults] = useState([]);
   const inputElement = useRef(null);
+  const maxResults = 10;
   const minimumChar = 4;
-
 
   // Trigger search when user stops typing
   useEffect(() => {
     setResults([]);
-    setSearchQuery('');
-    if (fieldInputVal.length >= minimumChar) {
+    setDebouncedSearchInput('');
+    if (searchInput.length >= minimumChar) {
       const timer = setTimeout(() => {
-        setSearchQuery(fieldInputVal);
+        setDebouncedSearchInput(searchInput);
       }, 1000);
       return () => clearTimeout(timer);
     }
-  }, [fieldInputVal]);
-  
+  }, [searchInput]);
 
   // Execute search
   useEffect(() => {
-    if (searchQuery) {
+    if (debouncedSearchInput) {
       (async () => {
         setResultsLoading(true);
-        const books = await fetchBooks(searchQuery, maxResults);
+        const books = await fetchBooks(debouncedSearchInput, maxResults);
         setResults(books);
         setResultsLoading(false);
       })();
     }
-  }, [searchQuery]);
+  }, [debouncedSearchInput]);
 
-  
   // Reset search on button click, set focus to input
   const clearSearch = () => {
-    setFieldInputVal('');
-    setSearchQuery('');
     setResults([]);
+    setSearchInput('');
+    setDebouncedSearchInput('');
     inputElement.current.focus();
   };
 
   return (
     <Styled.SearchContainer>
 
-      <Styled.InputFieldContainer showSearchIcon={fieldInputVal.length === 0}>
-        <Styled.CancelButton onClick={clearSearch} visible={fieldInputVal.length > 0} />
+      <Styled.InputFieldContainer showSearchIcon={searchInput.length === 0}>
+        <Styled.CancelButton onClick={clearSearch} visible={searchInput.length > 0} />
         <Styled.InputField
           type="text"
           placeholder="Search for book titles or authors"
-          onChange={(e) => setFieldInputVal(e.target.value)}
+          onChange={(e) => setSearchInput(e.target.value)}
           onFocus={() => setSearchActive(true)}
           onBlur={() => setTimeout(() => setSearchActive(false), 50)}
-          value={fieldInputVal}
+          value={searchInput}
           ref={inputElement}
         />
       </Styled.InputFieldContainer>
@@ -90,7 +85,7 @@ const Search = () => {
           </Styled.Result>
         ))}
         
-        {!resultsLoading && searchQuery && results.length === 0 &&
+        {!resultsLoading && debouncedSearchInput && results.length === 0 &&
           <Styled.FeedbackMessage>
             Sorry, no results were found.
           </Styled.FeedbackMessage>
