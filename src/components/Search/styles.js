@@ -68,10 +68,8 @@ export const InputFieldContainer = styled.div`
   `;
 
 export const ResultsBox = styled.div`
-  display: none;
+  display: ${props => props.open ? 'block' : 'none'};
   width: 400px;
-  _min-height: 40px;
-  _padding: 6px;
 
   position: absolute;
   right: 40px;

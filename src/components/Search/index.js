@@ -62,21 +62,21 @@ const Search = () => {
         />
       </Styled.InputFieldContainer>
 
-      <Styled.ResultsBox style={(resultsLoading || searchActive) ? { display: 'block' } : {  }}>
-
+      <Styled.ResultsBox open={searchActive}>
         {resultsLoading &&
           <Spinner />
         }
-
         {results.map((result, index) => (
-          <Styled.Result key={index} href={result.link} target="_blank">
+          <Styled.Result href={result.link} target="_blank" key={index}>
 
             <Styled.ResultImageContainer>
               <Styled.ResultImage src={result.image || '/icon-book.gif'} alt={result.title} />
             </Styled.ResultImageContainer>
 
             <Styled.ResultDetailsContainer>
-              <Styled.ResultTitle>{result.title}</Styled.ResultTitle>
+              {result.title &&
+                <Styled.ResultTitle>{result.title}</Styled.ResultTitle>
+              }
               {result.author_name &&
                 <Styled.ResultAuthor>{result.author_name}</Styled.ResultAuthor>
               }
@@ -84,13 +84,11 @@ const Search = () => {
 
           </Styled.Result>
         ))}
-        
         {!resultsLoading && debouncedSearchInput && results.length === 0 &&
           <Styled.FeedbackMessage>
             Sorry, no results were found.
           </Styled.FeedbackMessage>
         }
-
       </Styled.ResultsBox>
 
     </Styled.SearchContainer>

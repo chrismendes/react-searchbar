@@ -4,10 +4,6 @@ const bookCoverEndpoint = 'https://covers.openlibrary.org/b/id/';
 const bookCoverEndpointSuffix = '-M.jpg';
 const amazonLinkPrefix = 'https://www.amazon.co.uk/s?i=stripbooks&k=';
 
-const encodeQueryString = (query) => {
-  return query.toLowerCase().replaceAll(' ', '+');
-}
-
 export const fetchBooks = async (query, maxResults, page = 1) => {
   if (!query) return false;
 
@@ -33,4 +29,8 @@ export const fetchBooks = async (query, maxResults, page = 1) => {
   }
 
   return books;
+}
+
+const encodeQueryString = (query) => {
+  return query.toLowerCase().replaceAll(' ', '+');
 }
