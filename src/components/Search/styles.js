@@ -99,7 +99,7 @@ export const ResultsBox = styled.div`
 
     color: #fff;
 
-    min-height: 96px;
+    min-height: 106px;
     padding: 6px;
 
     &:first-child {
