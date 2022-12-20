@@ -61,6 +61,10 @@ export const InputFieldContainer = styled.div`
     border: 0;
 
     cursor: pointer;
+
+    &:hover {
+      box-shadow: inset 0 0 0 99em rgb(0 0 0 / 14%);
+    }
   `;
 
 export const ResultsBox = styled.div`
