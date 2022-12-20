@@ -47,7 +47,7 @@ const Search = () => {
   };
 
   return (
-    <Styled.SearchContainer>
+    <Styled.SearchContainer onBlur={() => setTimeout(() => setSearchActive(false), 70)}>
 
       <Styled.InputFieldContainer showSearchIcon={searchInput.length === 0}>
         <Styled.CancelButton onClick={clearSearch} visible={searchInput.length > 0} />
@@ -56,7 +56,6 @@ const Search = () => {
           placeholder="Search for book titles or authors"
           onChange={(e) => setSearchInput(e.target.value)}
           onFocus={() => setSearchActive(true)}
-          onBlur={() => setTimeout(() => setSearchActive(false), 70)} // Delay closing results box for links to work
           value={searchInput}
           ref={inputElement}
         />
